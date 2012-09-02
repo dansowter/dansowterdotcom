@@ -1,0 +1,19 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %title= data.page.title || "DanSowter.com"
+    %meta{:content => data.page.description || "Nerd things, aggressively", :name => "description"}
+    = javascript_include_tag "vendor/modernizr-2.5.3.min"
+
+    = stylesheet_link_tag "site"
+    = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Droid+Sans+Mono"
+  %body
+    %header
+    = yield
+    %footer
+    
+    %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"}
+    :javascript
+      window.jQuery || document.write('<script src="javascripts/vendor/jquery-1.7.1.min.js"><\/script>')
+    = javascript_include_tag "site"
