@@ -1,3 +1,18 @@
+
+require 'rack/codehighlighter'
+require "pygments"
+use Rack::Codehighlighter, 
+ :pygments,
+ :element => "pre>code",
+ :pattern => /\A:::([-_+\w]+)\s*\n/,
+ # :options => { :linenos => 'table' },
+ :markdown => true
+
+set :markdown_engine, :redcarpet
+set :markdown, :fenced_code_blocks => true,
+               :autolink => true, 
+               :smartypants => true
+
 #Livereload
 activate :livereload
 

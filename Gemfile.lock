@@ -17,10 +17,12 @@ GIT
       rack-livereload
 
 GIT
-  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
-  revision: c75e43845ce88e9a5db3b2da5b105149f6c01397
+  remote: git://github.com/wbzyl/rack-codehighlighter.git
+  revision: 64bf50520cb1d563432832ae30d85bbd94cec5bd
   specs:
-    bootstrap-sass (2.0.4.1)
+    rack-codehighlighter (0.5.0)
+      nokogiri (>= 1.4.1)
+      rack (>= 1.0.0)
 
 GEM
   remote: http://rubygems.org/
@@ -29,6 +31,9 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.3.2)
+    blankslate (3.1.2)
+    bourbon (2.1.1)
+      sass (>= 3.1)
     chunky_png (1.2.6)
     coffee-script (2.2.0)
       coffee-script-source
@@ -41,12 +46,12 @@ GEM
     em-websocket (0.3.8)
       addressable (>= 2.1.1)
       eventmachine (>= 0.12.9)
-    eventmachine (0.12.10)
+    eventmachine (1.0.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
     favicon_maker (0.0.7)
       mini_magick (~> 3.0)
-    ffi (1.1.5)
+    ffi (1.0.11)
     fssm (0.2.9)
     haml (3.1.7)
     hike (1.2.1)
@@ -54,25 +59,24 @@ GEM
       rack (>= 1.0.0)
       url_mount (~> 0.2.1)
     i18n (0.6.1)
-    listen (0.4.7)
-      rb-fchange (~> 0.0.5)
-      rb-fsevent (~> 0.9.1)
-      rb-inotify (~> 0.8.8)
-    maruku (0.6.0)
+    listen (0.5.0)
+    maruku (0.6.1)
       syntax (>= 1.0.0)
-    middleman (3.0.0)
-      middleman-core (= 3.0.0)
-      middleman-more (= 3.0.0)
-      middleman-sprockets (= 3.0.0)
-    middleman-core (3.0.0)
+    middleman (3.0.4)
+      middleman-core (= 3.0.4)
+      middleman-more (= 3.0.4)
+      middleman-sprockets (~> 3.0.1)
+    middleman-core (3.0.4)
       activesupport (~> 3.2.6)
       bundler (~> 1.1)
-      listen (~> 0.4.7)
+      listen (~> 0.5.0)
       rack (~> 1.4.1)
       rack-test (~> 0.6.1)
+      rb-fsevent (~> 0.9.1)
+      rb-inotify (~> 0.8.8)
       thor (~> 0.15.4)
       tilt (~> 1.3.1)
-    middleman-more (3.0.0)
+    middleman-more (3.0.4)
       coffee-script (~> 2.2.0)
       coffee-script-source (~> 1.3.3)
       compass (>= 0.12.2)
@@ -80,17 +84,18 @@ GEM
       haml (>= 3.1.6)
       i18n (~> 0.6.0)
       maruku (~> 0.6.0)
-      middleman-core (= 3.0.0)
+      middleman-core (= 3.0.4)
       padrino-helpers (= 0.10.7)
       sass (>= 3.1.20)
       uglifier (~> 1.2.6)
-    middleman-sprockets (3.0.0)
-      middleman-more (= 3.0.0)
+    middleman-sprockets (3.0.1)
+      middleman-more (~> 3.0.1)
       sprockets (~> 2.1)
       sprockets-sass (~> 0.8.0)
     mini_magick (3.4)
       subexec (~> 0.2.1)
     multi_json (1.3.6)
+    nokogiri (1.5.5)
     padrino-core (0.10.7)
       activesupport (~> 3.2.0)
       http_router (~> 0.10.2)
@@ -100,24 +105,30 @@ GEM
     padrino-helpers (0.10.7)
       i18n (~> 0.6)
       padrino-core (= 0.10.7)
+    pygments.rb (0.2.13)
+      rubypython (~> 0.5.3)
     rack (1.4.1)
+    rack-contrib (1.1.0)
+      rack (>= 0.9.1)
     rack-livereload (0.3.6)
       rack
     rack-protection (1.2.0)
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
-    rb-fchange (0.0.5)
-      ffi
     rb-fsevent (0.9.1)
     rb-inotify (0.8.8)
       ffi (>= 0.5.0)
-    sass (3.3.0.alpha.3)
+    redcarpet (2.1.1)
+    rubypython (0.5.3)
+      blankslate (>= 2.1.2.3)
+      ffi (~> 1.0.7)
+    sass (3.2.1)
     sinatra (1.3.3)
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
       tilt (~> 1.3, >= 1.3.3)
-    sprockets (2.4.5)
+    sprockets (2.5.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -139,8 +150,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass!
+  bourbon
   compass
-  middleman (~> 3.0.0)
+  middleman
   middleman-favicon-maker (~> 3.0.0)!
   middleman-livereload (~> 3.0.0)!
+  pygments.rb
+  rack-codehighlighter!
+  rack-contrib
+  redcarpet

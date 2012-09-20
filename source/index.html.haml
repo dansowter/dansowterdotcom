@@ -2,60 +2,22 @@
 title: DanSowter.com
 description: Nerd things, aggressively
 ---
- 
-%article.red
-  .container
-    %h1
-      = lorem.words 8
-    %blockqupte
-      %p= lorem.sentence
-    %section
-      %p= lorem.paragraphs 1
-      %p= lorem.paragraphs 2
-    %blockqupte
-      %p= lorem.sentence
-    %section
-      %p= lorem.paragraphs 3
-      %p= lorem.paragraphs 2
-%article.blue
-  .container
-    %h1
-      = lorem.words 3
-    %blockqupte
-      %p= lorem.sentence
-    %section
-      %p= lorem.paragraphs 1
-      %p= lorem.paragraphs 2
-    %blockqupte
-      %p= lorem.sentence
-    %section
-      %p= lorem.paragraphs 3
-      %p= lorem.paragraphs 2
-%article.yellow
-  .container
-    %h1
-      = lorem.words 4
-    %blockqupte
-      %p= lorem.sentence
-    %section
-      %p= lorem.paragraphs 1
-      %p= lorem.paragraphs 2
-    %blockqupte
-      %p= lorem.sentence
-    %section
-      %p= lorem.paragraphs 3
-      %p= lorem.paragraphs 2
-%article.green
-  .container
-    %h1
-      = lorem.words 5
-    %blockqupte
-      %p= lorem.sentence
-    %section
-      %p= lorem.paragraphs 3
-      %p= lorem.paragraphs 2
-    %blockqupte
-      %p= lorem.sentence
-    %section
-      %p= lorem.paragraphs 3
-      %p= lorem.paragraphs 2
+
+%section{class: "green"}
+  .left_nav
+    %h1 Rant at me about
+    .nav_content
+      = partial 'layouts/left_nav'
+  %article
+    %h1 email
+    .article_content
+      = partial 'email/mailman'
+- (%w(red yellow blue purple green)*2).each do |colour|
+  %section{class: colour}
+    %article
+      - rand(1..4).times do
+        %h1= lorem.words 3
+        .article_content
+          %p= lorem.paragraphs rand(2..4)
+          %p= lorem.paragraphs rand(2..4)
+          %p= lorem.paragraphs rand(2..4)

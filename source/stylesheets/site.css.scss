@@ -1,60 +1,120 @@
-@import "bootstrap";
-@import "compass/utilities/general/min";
+// Neat Variables
+// $column: golden-ratio(1em, 3) !default; // Column width
+// $gutter: golden-ratio(1em, 1) !default; // Gutter between each two columns
+// $grid-columns: 12 !default; // Total number of columns in the grid
+// $max-width: golden-ratio(1em, 9) !default; // Max-width of the outer container
+// $border-box-sizing: true !default; // Makes all elements have a border-box layout
+// $default-feature: min-width; // Default @media feature for the breakpoint() mixin
 
+$max-width: 100%;
+$grid-columns: 24;
+
+// General Variables
 $radius: 3px;
 
+// Colours
 $dark_gray:   #888;
+$red:         #FC7365;  //#FC7365; // #F85F51;
+$green:       #8BC47B;  // #88c259; // #00EBB3;
+$blue:        #8BCCED;
+$yellow:      #DBCF71;  //#DBC569;//#CCC55C; // #F6FC2D;
+$purple:      #AE82C6;  //#c269c2;
 
-$red:    #FC7365;
-$green:  #00EBB3;
-$blue:   #8BCCED;
-$yellow: #F6FC2D;
 
-$light_red:    $red;
-$light_green:  $green;
-$light_blue:   $blue;
-$light_yellow: $yellow;
 
-$v_light_red:    $light_red;
-$v_light_green:  $light_green;
-$v_light_blue:   $light_blue;
-$v_light_yellow: $light_yellow;
+
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "boilerplate";
+@import "compass/utilities/general/min";
+@import "compass/css3/border-radius";
+@import "compass/css3/box-sizing";
+@import "compass/css3/box-shadow";
 
 body {
-  background: gray;
+  background: white;
   color: white;
-  font-family: 'Droid Sans Mono', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'PT Sans', "Helvetica Neue", Helvetica, Arial, sans-serif; //'Open Sans',
   font-size: 0.9em;
   line-height: 1.5em;
-}
-h1 {
-  font-size: 3em;
-  line-height: 1.2em;
-  margin-bottom: 1em;
+  margin:0px;
+  padding:0px;
+  position:relative;
 }
 
-.container {
-  padding-left: 0px;
-  padding-right: 0px;
+
+.white-box {
+  @include border-radius($radius);
+  @include box-sizing(border-box);
+  @include box-shadow(0 2px 4px rgba(0,0,0,.3));
+
+  padding: 30px;
+  margin-bottom: 30px;
+  background: white;
+  color: $dark_gray;
 }
 
-article {
+section {
+  h1 {
+    font-size: 3em;
+    line-height: 1em;
+    margin-top:0;
+    margin-bottom: 0.5em;
+  }
+  @include outer-container;
+  @include row;
   @include min-height(300px);
-  margin-bottom: 0px;
-  padding: 80px 0px 80px 0px;
+
+  padding-top:60px;
+
   &.red     { background: $red; }
   &.green   { background: $green; }
   &.blue    { background: $blue; }
   &.yellow  { background: $yellow; }
-  section {
-    @extend .span12;
-    @include border-radius($radius);
-    @include box-sizing(border-box);
-    @include box-shadow(0 2px 4px rgba(0,0,0,.3));
-
-    padding: 20px;
-    margin-bottom: 30px;
-    background: white;
-    color: $dark_gray;
+  &.purple  { background: $purple; }
+}
+  
+.left_nav {
+  @include span-columns(6);
+  @include shift(1);
+  position: fixed;
+  .nav_content {
+    @extend .white-box;
   }
+}
+
+article {
+  @include span-columns(15);
+  @include shift(8);
+  @include omega;
+
+  .article_content {
+    @extend .white-box;
+  }
+}
+
+.gist-highlight {
+    border-left: 5ex solid #eee;
+    position: relative;
+}
+
+.gist-highlight pre {
+    counter-reset: linenumbers;
+}
+
+.gist-highlight pre div:before {
+    color: #aaa;
+    content: counter(linenumbers);
+    counter-increment: linenumbers;
+    position: absolute;
+    text-align: right;
+    left: -5.5ex;
+    width: 4.5ex;
+    padding:0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
