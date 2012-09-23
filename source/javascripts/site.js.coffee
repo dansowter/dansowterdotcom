@@ -1,2 +1,2 @@
 $(document).ready ->
-  $('#stickynav').affix()
+  $('section').attr('id')

@@ -1,23 +1,39 @@
 ---
 title: DanSowter.com
-description: Nerd things, aggressively
+description: Rants for nerds.
 ---
 
-%section{class: "green"}
+- colours = %w(green red yellow blue purple).cycle
+
+
+%section#home{class: colours.next}
   .left_nav
     %h1 Rant at me about
     .nav_content
       = partial 'layouts/left_nav'
   %article
-    %h1 email
+    %h1 dansowter.com
+    .article_content
+      = partial 'home/description'
+
+%section#email{class: colours.next}
+  %article
+    %h1 mailman for parsing incoming emails.
     .article_content
       = partial 'email/mailman'
-- (%w(red yellow blue purple green)*2).each do |colour|
-  %section{class: colour}
+    %h1 Context.io for IMAP as a RESTful API.
+    .article_content
+      = partial 'email/contextio'
+    %h1 Mandrill for deliverability and tracking.
+    .article_content
+      = partial 'email/contextio'
+
+- 10.times do
+  %section{class: colours.next}
     %article
       - rand(1..4).times do
         %h1= lorem.words 3
         .article_content
           %p= lorem.paragraphs rand(2..4)
-          %p= lorem.paragraphs rand(2..4)
+          %p= lorem.paragraphs rand(2..5)
           %p= lorem.paragraphs rand(2..4)
