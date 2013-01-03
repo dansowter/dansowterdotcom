@@ -5,6 +5,7 @@ gem 'bourbon'
 gem "middleman"
 gem "middleman-favicon-maker", "~>3.0.0", :git => "git://github.com/follmann/middleman-favicon-maker.git"
 gem "middleman-livereload", "~>3.0.0", :git => "git://github.com/middleman/middleman-livereload.git"
+gem "middleman-blog"
 gem 'rack-contrib'
 gem "redcarpet"
 
