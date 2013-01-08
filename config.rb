@@ -1,17 +1,12 @@
 Time.zone = "Australia/Brisbane"
 
-set :markdown, :layout_engine => :erb,
-               :tables => true,
-               :autolink => true,
-               :smartypants => true
-
+set :markdown_engine, :redcarpet
 activate :livereload
 activate :directory_indexes
 
 activate :blog do |blog|
   blog.permalink = ":title/index.html"
   blog.taglink = "tags/:tag.html"
-  blog.layout = "layout"
   blog.default_extension = ".markdown"
   blog.tag_template = "tag.html"
   blog.calendar_template = "calendar.html"
@@ -37,5 +32,4 @@ configure :build do
   activate :minify_css
   activate :minify_javascript
   activate :cache_buster
-  activate :relative_assets
 end

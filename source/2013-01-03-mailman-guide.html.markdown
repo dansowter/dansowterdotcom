@@ -4,7 +4,7 @@ date: 2013-01-03 14:51 +10:00
 tags:
 ---
 
-### Mailman Guide
+# Mailman Guide
 
 Mailman is an incoming mail processing microframework (with POP3 and Maildir support), that works with Rails “out of the box”. -&nbsp;Jonathan Rudenberg, author of Mailman.
 
