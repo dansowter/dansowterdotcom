@@ -19,9 +19,6 @@
 
 
     = javascript_include_tag "vendor/modernizr-2.6.1.min"
-    / = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Headland+One"
-    / = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Gilda+Display"
-    / = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Josefin+Slab"
     = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Merriweather"
     = stylesheet_link_tag "site"
 
@@ -32,6 +29,21 @@
         = link_to 'dansowter.com', '/'
     %div{:role => "main", :class => "main"}
       = yield
+      #disqus_thread
+
+      :javascript
+        var disqus_shortname = 'dansowter';
+
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+      %noscript= "Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a>"
+
+      = link_to 'comments powered by <span class="logo-disqus">Disqus</span>', "http://disqus.com", class: "dsq-brlink"
+
       %aside
         %h2 Recent Articles
         %ol
@@ -61,7 +73,7 @@
     = javascript_include_tag "site"
 
     :javascript
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      var _gaq=[['_setAccount','UA-37569047-1'],['_trackPageview']];
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
