@@ -1,3 +1,3 @@
 $ ->
-  $(".bar, .nav-toggle").click ->
+  $("#nav-toggle").click ->
     $("nav").slideToggle()
