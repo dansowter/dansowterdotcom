@@ -13,6 +13,7 @@ activate :blog do |blog|
   blog.paginate = true
   blog.per_page = 5
   blog.page_link = "page/:num"
+  blog.layout = "article_layout"
 end
 
 activate :sync do |sync|

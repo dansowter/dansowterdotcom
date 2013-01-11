@@ -1,5 +1,5 @@
 ---
-title: what-goes-wrong
+title: What Goes Wrong
 date: 2013-01-09 07:37 +10:00
 tags:
 ---

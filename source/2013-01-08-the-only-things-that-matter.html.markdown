@@ -1,5 +1,5 @@
 ---
-title: the-only-things-that-matter
+title: The Only Things That Matter
 date: 2013-01-08 20:32 +10:00
 tags:
 ---

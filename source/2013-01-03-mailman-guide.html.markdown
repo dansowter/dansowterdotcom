@@ -1,5 +1,5 @@
 ---
-title: mailman-guide
+title: Mailman Guide
 date: 2013-01-03 14:51 +10:00
 tags:
 ---

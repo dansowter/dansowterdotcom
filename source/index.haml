@@ -1,0 +1,6 @@
+- page_articles.each do |article|
+  %h1
+    = link_to article.title, article
+  .date
+    %h2= article.date.strftime('%b %e')
+  %p= article.summary

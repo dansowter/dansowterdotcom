@@ -1,5 +1,5 @@
 ---
-title: map-reduce-and-hairloss
+title: MapReduce and Hairloss
 date: 2013-01-09 12:35 +10:00
 tags:
 ---

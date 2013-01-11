@@ -1,26 +1,25 @@
 // General Variables
-$radius: 3px;
-$main-bg: #fdfdfd !default;
-$border: 4px double rgba(0, 0, 0, .1) !default;
+$main-bg: #fdfdfd;
 
-$text-color: #444 !default;
-$text-color-dark: #333 !default;
-$text-color-darkest: #101010 !default;
-$text-color-light: #888 !default;
+$text-color: #444;
+$text-color-dark: #333;
+$text-color-darkest: #101010;
+$text-color-light: #888;
+
 $green: #019973;
+$green-nav: adjust-color($green, $lightness: 3, $saturation: -13);
 
 // Main Link Colors
-$link-color: #019973 !default;
-$link-color-hover: adjust-color($link-color, $lightness: 10, $saturation: 25) !default;
-$link-color-visited: $link-color !default;
-$link-color-active: adjust-color($link-color-hover, $lightness: -15) !default;
-$link-color-nav: adjust-color($link-color, $lightness: 5, $saturation: 50) !default;
+$link-color: $green;
+$link-color-hover: adjust-color($link-color, $lightness: 10, $saturation: 25);
+$link-color-visited: $link-color;
+$link-color-active: adjust-color($link-color-hover, $lightness: -15);
+$link-color-nav: adjust-color($link-color, $lightness: -20, $saturation: -20);
 
 // Fonts
-$serif: "Merriweather", Georgia, "Times New Roman", serif !default;
-$sans: "PT Sans", Arial, sans-serif !default;
-$mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default;
-
+$serif: "Merriweather", Georgia, "Times New Roman", serif;
+$sans: "PT Sans", Arial, sans-serif;
+$mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
 
 @import "_vendor/normalize.css";
 @import "_vendor/html5bp.css";
@@ -37,7 +36,34 @@ body {
   background: $main-bg;
   color: $text-color;
   font-family: $serif;
-  position: relative;
+}
+
+header {
+  @include outer-container;
+  max-width: 100%;
+  background-color: $green;
+  padding: 0;
+  color: white;
+  a {
+    @include link-colors(white, $hover: $link-color-nav, $focus: $link-color-nav, $visited: white, $active: $link-color-active);
+  }
+}
+
+.bar {
+  margin: 0em 1em;
+}
+
+.nav-toggle {
+  text-align: right;
+  display: block;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-size: 1.3em;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: $sans;
 }
 
 h1 {
@@ -45,49 +71,54 @@ h1 {
   line-height: 1em;
 }
 
-.main, .main-header {
+.container {
   @include outer-container;
-    padding: 0 1em;
-
   font-size: 1em;
   line-height: 1.5em;
+  padding: 1em;
 
   @include media(481px) {
     max-width: 800px;
     font-size: 1.2em;
     line-height: 1.7em;
-    p {
-      padding: 0 2em;
-    }
-  }
-
-  h1 {
-    text-align: center;
   }
 }
 
 .gist {
   font-size: 0.75em;
   line-height: 1.45em;
-
-  // @include media(481px) {
-  //   font-size: 0.9em;
-  // }
 }
 
 .gist .gist-file .gist-data pre {
   width: 250%;
 }
 
-.main-header {
-  a {
-    text-decoration: none;
-  }
-  h1 {
-    font-size: 1em;
+a {
+  @include link-colors($link-color, $hover: $link-color-hover, $focus: $link-color-hover, $visited: $link-color-visited, $active: $link-color-active);
+  text-decoration: none;
+}
+
+nav {
+  display: none;
+  ul {
+    text-align: center;
+    padding: 0;
+
+    li {
+      display: inline-block;   
+      width: 32%;
+      a {
+        @include link-colors(white, $hover: $link-color-nav, $focus: $link-color-nav, $visited: white, $active: $link-color-active);
+        display: block;
+        position: relative;
+        background-color: $green-nav;
+        padding: 0.3em 0;
+        .nav-icon {
+          font-size: 2em;
+        }
+      }
+    }
   }
 }
 
-a {
-  @include link-colors($link-color, $hover: $link-color-hover, $focus: $link-color-hover, $visited: $link-color-visited, $active: $link-color-active);
-}
+@import "icons";
