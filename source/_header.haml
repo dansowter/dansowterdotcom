@@ -1,11 +1,12 @@
 %header
-  .bar
-    #logo
+  .wrapper
+    %div{:class => (current_article ? "article-bar" : "bar") }
       %a{:href => "/"}
-        %h1
-          Dan Sowter
-    #nav-toggle
-      %h1.icon-cogs
+        #logo
+          %h1
+            Dan Sowter
+      #nav-toggle
+        %h1.icon-cogs
   %nav#main-nav
     %ul
       %li

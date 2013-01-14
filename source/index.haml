@@ -1,6 +1,13 @@
 - page_articles.each do |article|
-  %h1
-    = link_to article.title, article
-  .date
-    %h2= article.date.strftime('%b %e')
-  %p= article.summary
+  .item
+    .info
+      .date
+        %h2= article.date.strftime('%b %e')
+      .tags
+        - article.tags.each do |tag|
+          = "##{tag}"
+    .article
+      %h2
+        = link_to article.title, article
+      %p= article.summary
+  %hr

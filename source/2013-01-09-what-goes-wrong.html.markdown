@@ -1,13 +1,9 @@
 ---
 title: What Goes Wrong
 date: 2013-01-09 07:37 +10:00
-tags:
+tags: startups, video
 ---
-
-#What goes wrong
-
-##Jessica Livingston
-##Partner, Y Combinator
+**Jessica Livingston**, **Partner, Y Combinator**
 
 [Slides](http://startupschool.org/2012/livingston/)
 

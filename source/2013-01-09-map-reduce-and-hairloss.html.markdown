@@ -1,11 +1,8 @@
 ---
 title: MapReduce and Hairloss
 date: 2013-01-09 12:35 +10:00
-tags:
+tags: mongo, rspec, rails
 ---
-
-# Mongoid, TDD, map/reduce, and hairloss.
-
 **tl;dr**
 
 ```sh

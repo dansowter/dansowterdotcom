@@ -1,5 +1,9 @@
 // General Variables
 $main-bg: #fdfdfd;
+$desktop-width: 900px;
+$desktop-columns: 14;
+$desktop-left-columns:2;
+$desktop-right-columns:12;
 
 $text-color: #444;
 $text-color-dark: #333;
@@ -43,19 +47,44 @@ body {
 }
 
 header {
-  @include outer-container;
-  max-width: 100%;
+  width: 100%;
   background-color: $green;
-  padding: 0;
   color: white;
+  .wrapper {
+    @include outer-container;
+    @include media(481px, $desktop-columns) {
+      max-width: $desktop-width;
+    }
+  }
   a {
     @include link-colors(white, $hover: $link-color-nav, $focus: $link-color-nav, $visited: white, $active: $link-color-active);
   }
+  .bar {
+    margin: 0em 1em;
+    padding: 0.5em 1em 0 1em;
+
+    @include media(481px, $desktop-columns) {
+      @include span-columns($desktop-right-columns);
+      @include shift($desktop-left-columns);
+      @include omega();
+      padding:0;
+    }
+  }
 }
 
-.bar {
-  position: relative;
-  margin: 0em 1em;
+
+.container {
+  @include outer-container;
+  font-size: 1em;
+  line-height: 1.5em;
+  padding: 1em;
+
+  @include media(481px, $desktop-columns) {
+    max-width: $desktop-width;
+    font-size: 1.2em;
+    line-height: 1.7em;
+    padding: 0;
+  }
 }
 
 #logo {
@@ -67,6 +96,7 @@ header {
   float: left;
   text-align: right;
   width: 50%;
+  cursor: pointer;
 }
 
 h1, h2, h3, h4, h5 {
@@ -78,17 +108,27 @@ h1 {
   line-height: 1em;
 }
 
-.container {
-  @include outer-container;
-  font-size: 1em;
-  line-height: 1.5em;
-  padding: 1em;
+.item {
+  @include row
+}
 
-  @include media(481px) {
-    max-width: 800px;
-    font-size: 1.2em;
-    line-height: 1.7em;
+.info {
+  @include media(481px, $desktop-columns) {
+    text-align: right;
+    @include span-columns($desktop-left-columns);
   }
+}
+
+.article {
+  @include media(481px, $desktop-columns) {
+    @include span-columns($desktop-right-columns);
+  }
+}
+
+.tags {
+  font-size: 0.7em;
+  line-height: 1.6em;
+  color: $text-color-light;
 }
 
 a {

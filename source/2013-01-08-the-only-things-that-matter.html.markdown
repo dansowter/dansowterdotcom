@@ -1,10 +1,8 @@
 ---
 title: The Only Things That Matter
 date: 2013-01-08 20:32 +10:00
-tags:
+tags: startups, video
 ---
-
-# Founder of Github.
 
 [Tom Preston-Werner at Startup School 2012](http://www.youtube.com/watch?v=P9jjDpWzsUI)
 ### People are the only thing that matters.
