@@ -1,8 +1,11 @@
 Time.zone = "Australia/Brisbane"
 
 set :markdown_engine, :redcarpet
+set :markdown, :fenced_code_blocks => true, :smartypants => true
+
 activate :livereload
 activate :directory_indexes
+activate :syntax
 
 activate :blog do |blog|
   blog.permalink = ":title/index.html"

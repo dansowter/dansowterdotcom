@@ -32,6 +32,7 @@ $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
 @import "compass/css3/box-sizing";
 @import "compass/css3/box-shadow";
 @import "icons";
+@import "syntax";
 
 body {
   background: $main-bg;
@@ -88,15 +89,6 @@ h1 {
     font-size: 1.2em;
     line-height: 1.7em;
   }
-}
-
-.gist {
-  font-size: 0.75em;
-  line-height: 1.45em;
-}
-
-.gist .gist-file .gist-data pre {
-  width: 250%;
 }
 
 a {
