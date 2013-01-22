@@ -1,5 +1,10 @@
 Time.zone = "Australia/Brisbane"
 
+env = Sprockets::Environment.new
+
+require 'handlebars_assets'
+env.append_path HandlebarsAssets.path
+
 set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true, :smartypants => true
 

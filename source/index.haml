@@ -1,3 +1,5 @@
+#tweets
+#github
 - page_articles.each do |article|
   .item
     .info
@@ -6,7 +8,7 @@
       .tags
         - article.tags.each do |tag|
           = "##{tag}"
-    .article
+    .content
       %h2
         = link_to article.title, article
       %p= article.summary

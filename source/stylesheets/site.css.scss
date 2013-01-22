@@ -119,7 +119,7 @@ h1 {
   }
 }
 
-.article {
+.content {
   @include media(481px, $desktop-columns) {
     @include span-columns($desktop-right-columns);
   }

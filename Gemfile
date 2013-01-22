@@ -4,6 +4,7 @@ gem 'asset_sync', '0.5.0'
 gem 'compass'
 gem 'bourbon'
 gem 'neat'
+gem 'handlebars_assets'
 gem "builder", "~> 3.0.0"
 gem "middleman", "~> 3.0.7"
 gem "middleman-blog", "~> 3.1.1"
