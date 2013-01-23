@@ -4,9 +4,9 @@ date: 2013-01-22 21:39 +10:00
 tags: coffeescript, middleman, handlebars
 ---
 
-I recently began redesigning my [middleman](http://middlemanapp.com/) blog could use 
+I recently began redesigning my blog, and settled on [middleman](http://middlemanapp.com/). Things have been going swimmingly, and I'm now happily deploying with a simple "middleman sync" to S3.
 
-Today I decided a list of my most recent tweets to bring things to life a little, and I took it as an opportunity to get playing with [Handlebars](http://handlebarsjs.com/). We'll be using the excellent [handlebars_assets](https://github.com/leshill/handlebars_assets) gem.
+Today I decided a list of my most recent tweets would help bring things to life a little, and I took it as an opportunity to get playing with [Handlebars](http://handlebarsjs.com/). We'll be using the excellent [handlebars_assets](https://github.com/leshill/handlebars_assets) gem.
 
 The source for this blog is available [here](https://github.com/dansowter/dansowterdotcom), if I've missed something, or this all seems a bit out of context.
 
