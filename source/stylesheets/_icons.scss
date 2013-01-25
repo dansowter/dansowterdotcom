@@ -1,0 +1,77 @@
+@font-face {
+	font-family: 'icons';
+	src:url('../fonts/icons.eot');
+	src:url('../fonts/icons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icons.svg#icons') format('svg'),
+		url('../fonts/icons.woff') format('woff'),
+		url('../fonts/icons.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+// [data-icon]:before {
+// 	font-family: 'icons';
+// 	content: attr(data-icon);
+// 	speak: none;
+// 	font-weight: normal;
+// 	line-height: 1;
+// 	-webkit-font-smoothing: antialiased;
+// }
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"]:before {
+*/
+.icon-flow-branch:before, .icon-twitter:before, .icon-github:before, .icon-cc:before, .icon-skype:before, .icon-book:before, .icon-book-2:before, .icon-house:before, .icon-quote:before, .icon-tag:before, .icon-linkedin:before, .icon-list:before, .icon-vcard:before, .icon-archive:before {
+	font-family: 'icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-flow-branch:before {
+	content: "\e000";
+}
+.icon-twitter:before {
+	content: "\e001";
+}
+.icon-github:before {
+	content: "\e002";
+}
+.icon-cc:before {
+	content: "\e003";
+}
+.icon-skype:before {
+	content: "\e004";
+}
+.icon-book:before {
+	content: "\e006";
+}
+.icon-book-2:before {
+	content: "\e007";
+}
+.icon-house:before {
+	content: "\e008";
+}
+.icon-quote:before {
+	content: "\e009";
+}
+.icon-tag:before {
+	content: "\e00a";
+}
+.icon-linkedin:before {
+	content: "\e00b";
+}
+.icon-list:before {
+	content: "\e005";
+}
+.icon-vcard:before {
+	content: "\e00c";
+}
+.icon-archive:before {
+	content: "\e00d";
+}

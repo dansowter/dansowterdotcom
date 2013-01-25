@@ -10,6 +10,8 @@ $text-color-dark: #333;
 $text-color-darkest: #101010;
 $text-color-light: #888;
 
+$footer-color:#e6e6e6;
+
 $green: #019973;
 $green-nav: adjust-color($green, $lightness: 3, $saturation: -13);
 
@@ -35,8 +37,9 @@ $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
 @import "compass/css3/border-radius";
 @import "compass/css3/box-sizing";
 @import "compass/css3/box-shadow";
-@import "icons";
+@import "compass/css3/font-face";
 @import "syntax";
+@import "icons";
 
 body {
   background: $main-bg;
@@ -158,4 +161,9 @@ nav {
       }
     }
   }
+}
+
+footer {
+  background-color: $footer-color;
+  min-height: 10em;
 }
