@@ -1,26 +1,28 @@
 // General Variables
-$main-bg: #fdfdfd;
-$desktop-width: 900px;
-$desktop-columns: 14;
+$desktop-width: 800px;
+$desktop-columns: 16;
 $desktop-left-columns:2;
-$desktop-right-columns:12;
+$desktop-gap-columns:1;
+$desktop-right-columns:13;
 
-$text-color: #444;
-$text-color-dark: #333;
-$text-color-darkest: #101010;
-$text-color-light: #888;
+// Colours
+$grey: #555;
+$grey-dark:     adjust-color($grey, $lightness: -20, $saturation: 0);
+$grey-darkest:  adjust-color($grey, $lightness: -30, $saturation: 0);
+$grey-light:    adjust-color($grey, $lightness: +15, $saturation: 0);
+$grey-lightest: adjust-color($grey, $lightness: +30, $saturation: 0);
 
-$footer-color:#e6e6e6;
+$red:         #FC8178;  //#FC7365; //#FC7365; // #F85F51; //
+$green:       #00EBB3;  //#8BC47B; //#88c259; // 
+$blue:        #8BCCED;
+$yellow:      #ECD36F;  //#DBC569; //#DBCF71; //
+$purple:      #AE82C6;  //#c269c2; //
 
-$green: #019973;
-$green-nav: adjust-color($green, $lightness: 3, $saturation: -13);
+$main-background: #fcfcfc;
+$footer-color: $grey-lightest;
 
 // Main Link Colors
-$link-color: $green;
-$link-color-hover: adjust-color($link-color, $lightness: 10, $saturation: 25);
-$link-color-visited: $link-color;
-$link-color-active: adjust-color($link-color-hover, $lightness: -15);
-$link-color-nav: adjust-color($link-color, $lightness: -20, $saturation: -20);
+$link-color: $blue;
 
 // Fonts
 $serif: "Merriweather", Georgia, "Times New Roman", serif;
@@ -42,64 +44,47 @@ $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
 @import "icons";
 
 body {
-  background: $main-bg;
-  color: $text-color;
+  background: $main-background;
+  color: $grey-light;
   font-family: $serif;
-  margin:0;
+  margin:1em;
   padding: 0;
+  position: relative;
 }
-
-header {
-  width: 100%;
-  background-color: $green;
-  color: white;
-  .wrapper {
-    @include outer-container;
-    @include media(481px, $desktop-columns) {
-      max-width: $desktop-width;
-    }
-  }
-  a {
-    @include link-colors(white, $hover: $link-color-nav, $focus: $link-color-nav, $visited: white, $active: $link-color-active);
-  }
-  .bar {
-    margin: 0em 1em;
-    padding: 0.5em 1em 0 1em;
-
-    @include media(481px, $desktop-columns) {
-      @include span-columns($desktop-right-columns);
-      @include shift($desktop-left-columns);
-      @include omega();
-      padding:0;
-    }
-  }
-}
-
 
 .container {
   @include outer-container;
+  position: relative;
   font-size: 1em;
   line-height: 1.5em;
-  padding: 1em;
+  padding-bottom: 8em;
 
   @include media(481px, $desktop-columns) {
     max-width: $desktop-width;
     font-size: 1.2em;
     line-height: 1.7em;
-    padding: 0;
   }
 }
 
-#logo {
-  float: left;
-  width: 50%;
+a {
+  @include link-colors($link-color, $hover: adjust-color($link-color, $lightness: 10, $saturation: 25), $focus: adjust-color($link-color, $lightness: 10, $saturation: 25), $visited: $link-color, $active: adjust-color($link-color, $lightness: -15));
+  text-decoration: none;
 }
 
-#nav-toggle {
-  float: left;
-  text-align: right;
-  width: 50%;
-  cursor: pointer;
+#logo-box {
+  background-color: $red;
+  position: fixed;
+  $link-color: white;
+  a {
+    @include link-colors($link-color, $hover: $grey, $focus: adjust-color($link-color, $lightness: 10, $saturation: 25), $visited: $link-color, $active: adjust-color($link-color, $lightness: -15));
+  }
+}
+
+.logo {
+  padding: 0.5em 1em;
+  font-size: 2em;
+  text-align: center;
+  line-height: 2em;
 }
 
 h1, h2, h3, h4, h5 {
@@ -108,11 +93,18 @@ h1, h2, h3, h4, h5 {
 
 h1 {
   font-size: 2em;
-  line-height: 1em;
+  line-height: 1.3em;
+}
+
+#title {
+  font-size: 2em;
 }
 
 .item {
-  @include row
+  margin: 2em 0;
+  padding-bottom: 2em;
+  @include row;
+  border-bottom: 2px dashed #DDD;
 }
 
 .info {
@@ -120,10 +112,34 @@ h1 {
     text-align: right;
     @include span-columns($desktop-left-columns);
   }
+  .icon {
+    font-size: 2em;
+  }
+}
+
+.yellow {
+  color: $yellow;
+}
+
+.green {
+  color: $green;
+}
+
+.purple {
+  color: $purple;
+}
+
+.blue {
+  color: $blue;
+}
+
+.red {
+  color: $red;
 }
 
 .content {
   @include media(481px, $desktop-columns) {
+    @include shift($desktop-gap-columns);
     @include span-columns($desktop-right-columns);
   }
 }
@@ -131,39 +147,22 @@ h1 {
 .tags {
   font-size: 0.7em;
   line-height: 1.6em;
-  color: $text-color-light;
-}
-
-a {
-  @include link-colors($link-color, $hover: $link-color-hover, $focus: $link-color-hover, $visited: $link-color-visited, $active: $link-color-active);
-  text-decoration: none;
-}
-
-nav {
-  clear: both;
-  display: none;
-  ul {
-    text-align: center;
-    padding: 0;
-
-    li {
-      display: inline-block;   
-      width: 32%;
-      a {
-        @include link-colors(white, $hover: $link-color-nav, $focus: $link-color-nav, $visited: white, $active: $link-color-active);
-        display: block;
-        position: relative;
-        background-color: $green-nav;
-        padding: 0.3em 0;
-        .nav-icon {
-          font-size: 2em;
-        }
-      }
-    }
-  }
+  margin-top: 1.5em;
+  color: $grey-lightest;
 }
 
 footer {
   background-color: $footer-color;
-  min-height: 10em;
+  position: absolute;
+  bottom: -2em;
+  left: -2em;
+  right: -2em;
+  min-height: 5em;
+}
+
+.article {
+  $link-color: $yellow;
+  a {
+    @include link-colors($link-color, $hover: adjust-color($link-color, $lightness: 10, $saturation: 25), $focus: adjust-color($link-color, $lightness: 10, $saturation: 25), $visited: $link-color, $active: adjust-color($link-color, $lightness: -15));
+  }
 }

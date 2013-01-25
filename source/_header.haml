@@ -1,23 +1,4 @@
 %header
-  .wrapper
-    %div{:class => (current_article ? "article-bar" : "bar") }
-      %a{:href => "/"}
-        #logo
-          %h1
-            Dan Sowter
-      #nav-toggle
-        .icon-list
-  %nav#main-nav
-    %ul
-      %li
-        %a{:href => "/"}
-          .icon-house
-          Home
-      %li
-        %a{:href => "/archive"}
-          .icon-archive
-          Archive
-      %li
-        %a{:href => "/about"}
-          .icon-vcard
-          About Me
+  #logo-box
+    %a{:href => "/"}
+      .logo.icon-house
