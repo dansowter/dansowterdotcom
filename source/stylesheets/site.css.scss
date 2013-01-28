@@ -74,6 +74,11 @@ a {
 #logo-box {
   background-color: $red;
   position: fixed;
+  display: none;
+  @include media(1100px) {
+    display: block;
+  }
+
   $link-color: white;
   a {
     @include link-colors($link-color, $hover: $grey, $focus: adjust-color($link-color, $lightness: 10, $saturation: 25), $visited: $link-color, $active: adjust-color($link-color, $lightness: -15));
@@ -178,6 +183,26 @@ footer {
   .title-tags {
     color: $grey-light;
   }
+}
+
+.github {
+  ul {
+    list-style: none;
+    padding: 0 0 0 1em;
+  }
+
+  $link-color: $purple;
+  a {
+    @include link-colors($link-color, $hover: adjust-color($link-color, $lightness: 10, $saturation: 25), $focus: adjust-color($link-color, $lightness: 10, $saturation: 25), $visited: $link-color, $active: adjust-color($link-color, $lightness: -15));
+  }
+  .sha {
+    font-family: $mono;
+    margin-right: 0.5em;
+  }
+  .sha-icon {
+    font-size: 0.7em;
+  }
+  display: none;
 }
 
 .tweet {

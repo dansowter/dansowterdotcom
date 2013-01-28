@@ -1,6 +1,7 @@
 #= require handlebars
 #= require date
 #= require tweets
+#= require github
 #= require_tree ./templates
 
 @insertContentWithTimestamp = (content, timestamp) ->
