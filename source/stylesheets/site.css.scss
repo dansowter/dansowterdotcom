@@ -6,11 +6,11 @@ $desktop-gap-columns:1;
 $desktop-right-columns:13;
 
 // Colours
-$grey: #555;
+$grey: #444;
 $grey-dark:     adjust-color($grey, $lightness: -20, $saturation: 0);
 $grey-darkest:  adjust-color($grey, $lightness: -30, $saturation: 0);
-$grey-light:    adjust-color($grey, $lightness: +15, $saturation: 0);
-$grey-lightest: adjust-color($grey, $lightness: +30, $saturation: 0);
+$grey-light:    adjust-color($grey, $lightness: +30, $saturation: 0);
+$grey-lightest: adjust-color($grey, $lightness: +60, $saturation: 0);
 
 $red:         #FC8178;  //#FC7365; //#FC7365; // #F85F51; //
 $green:       #00EBB3;  //#8BC47B; //#88c259; // 
@@ -18,7 +18,7 @@ $blue:        #8BCCED;
 $yellow:      #ECD36F;  //#DBC569; //#DBCF71; //
 $purple:      #AE82C6;  //#c269c2; //
 
-$main-background: #fcfcfc;
+$main-background: white;
 $footer-color: $grey-lightest;
 
 // Main Link Colors
@@ -45,7 +45,7 @@ $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
 
 body {
   background: $main-background;
-  color: $grey-light;
+  color: $grey;
   font-family: $serif;
   margin:1em;
   padding: 0;
@@ -104,7 +104,7 @@ h1 {
   margin: 2em 0;
   padding-bottom: 2em;
   @include row;
-  border-bottom: 2px dashed #DDD;
+  border-bottom: 2px dashed $grey-lightest;
 }
 
 .info {
@@ -113,7 +113,7 @@ h1 {
     @include span-columns($desktop-left-columns);
   }
   .icon {
-    font-size: 2em;
+    font-size: 3em;
   }
 }
 
@@ -148,7 +148,7 @@ h1 {
   font-size: 0.7em;
   line-height: 1.6em;
   margin-top: 1.5em;
-  color: $grey-lightest;
+  color: $grey-light;
 }
 
 footer {
@@ -165,4 +165,21 @@ footer {
   a {
     @include link-colors($link-color, $hover: adjust-color($link-color, $lightness: 10, $saturation: 25), $focus: adjust-color($link-color, $lightness: 10, $saturation: 25), $visited: $link-color, $active: adjust-color($link-color, $lightness: -15));
   }
+  .title {
+    @include row;
+
+    h1 {
+      font-size: 3em;
+    }
+  }
+}
+
+.title-info {
+  .title-tags {
+    color: $grey-light;
+  }
+}
+
+.tweet {
+  display: none;
 }

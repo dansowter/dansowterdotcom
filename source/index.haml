@@ -1,18 +1,17 @@
 #title
   %h1.yellow
     My name is Dan Sowter, and I like the internet.
-#tweets
-#github
-- page_articles.each do |article|
-  .item.article
-    .info
-      .date
-        %h2= article.date.strftime('%b %e')
-      .icon.icon-book.yellow
-      .tags
-        - article.tags.each do |tag|
-          = "##{tag}"
-    .content
-      %h2
-        = link_to article.title, article
-      %p= article.summary
+#timeline
+  - page_articles.each do |article|
+    %div{:class => "item article", data: {timestamp: article.date.utc.iso8601}}
+      .info
+        .date
+          %h2= article.date.strftime('%b %e')
+        .icon.icon-book.yellow
+        .tags
+          - article.tags.each do |tag|
+            = "##{tag}"
+      .content
+        %h2
+          = link_to article.title, article
+        %p= article.summary

@@ -1,6 +1,15 @@
 - wrap_layout :layout do
   %article.article
-    %h1= current_article.title
+    .title
+      %ul.title-info
+        %li.icon-book.yellow
+        %li
+          = current_article.date.strftime('%b %e')
+        %li.title-tags
+          - current_article.tags.each do |tag|
+            = "##{tag}"
+      %h1.yellow
+        = current_article.title
     = yield
     = partial 'disqus'
     = partial 'recent'

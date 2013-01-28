@@ -2,15 +2,23 @@ $ ->
   user = "dansowter"
   $.getJSON "http://api.twitter.com/1/statuses/user_timeline.json?screen_name=" + user + "&include_rts=1&callback=?", (data) ->
     displayTweet tweet for tweet in data
+    $('.tweet').fadeIn()
 
 displayTweet = (tweet) ->
+  timestamp = isoDate(tweet.created_at)
+  
   data =
+    timestamp: timestamp
     text: replaceMentions(addLinks(tweet.text))
     date: formatDate(tweet.created_at)
     tags: grabTags(tweet.text)
 
   html = HandlebarsTemplates['templates/tweet'](data)
-  $("#tweets").append(html)
+  window.insertContentWithTimestamp(html, timestamp)
+
+isoDate = (timestamp) ->
+  date = new Date(timestamp)
+  date.toISOString()
 
 formatDate = (timestamp) ->
   date = new Date(timestamp)
