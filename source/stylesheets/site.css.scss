@@ -29,8 +29,8 @@ $serif: "Merriweather", Georgia, "Times New Roman", serif;
 $sans: "PT Sans", Arial, sans-serif;
 $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
 
-@import "_vendor/normalize.css";
-@import "_vendor/html5bp.css";
+@import "normalize";
+@import "html5bp";
 @import "bourbon/bourbon";
 @import "neat/neat";
 @import "compass/utilities/general/min";

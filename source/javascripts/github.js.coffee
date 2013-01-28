@@ -1,12 +1,13 @@
 $ ->
-  $.get 'https://api.github.com/users/dansowter/events/public', (data) ->
-    displayPush public_event for public_event in data
-    $('.github').fadeIn()
-
+  $.ajax 'https://api.github.com/users/dansowter/events/public',
+      type: 'GET'
+      dataType: 'jsonp'
+      success: (data, textStatus, jqXHR) ->
+        displayPush public_event for public_event in data.data
+        $('.github').fadeIn()
 
 displayPush = (public_event) ->
   if public_event.type == "PushEvent"
-    console.log public_event
     date = new Date(public_event.created_at)
     date_string = "#{date.getShortMonthName()} #{date.getDate()}"
     data =
